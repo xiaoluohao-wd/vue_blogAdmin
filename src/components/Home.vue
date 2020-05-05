@@ -4,7 +4,7 @@
         <el-header class="el_header">
             <div>
                 <img src="../assets/1.jpg" alt="">
-                <span>电商后台管理系统</span>
+                <span>博客后台管理系统</span>
             </div>
             <el-button type="info" @click="logout">退出</el-button>
         </el-header>
@@ -19,16 +19,20 @@
                 </div>
                 <!-- 侧边栏菜单区域 -->
                 <el-menu :router="true" background-color="#333744" text-color="#fff" active-text-color="#409eff" 
-                unique-opened :collapse='isCollapse' :collapse-transition="false" :default-active="activepath">
+                 unique-opened :collapse='isCollapse' :collapse-transition="false">
                     <!-- submenu 是一级菜单 -->
-                    <el-submenu :index="item.id+''" v-for="item in menulist" :key=item.id>
+                    <el-submenu :index="'/'+item.path" v-for="item in menulist" :key='item.id'>
                         <!-- template是一级菜单的模板区域 -->
                         <template slot="title">
                             <!-- i是菜单的图标 -->
-                            <i :class="iconobj[item.id]"></i>
                             <span>{{item.name}}</span>
                         </template>
-
+                        <!-- 二级菜单 -->
+                        <el-menu-item   :index="'/'+subitem.path"  v-for="subitem in item.children" :key="subitem.id">
+                            <template slot="title">
+                                {{subitem.name}}
+                            </template>
+                        </el-menu-item>
                     </el-submenu>
                 </el-menu>
             </el-aside>
@@ -44,11 +48,9 @@ export default {
     data(){
         return{
             menulist:[
-                {id:1,name:'发表文章'},
-                {id:2,name:'发表说说'},
-                {id:3,name:'文章管理'},
-                {id:4,name:'说说管理'},
-                {id:5,name:'评论管理'},
+                {id:1,name:'文章管理',children:[{id:4,name:'发表文章',path:'addarticles'},{id:5,name:'修改文章',path:'editarticles'},{id:6,name:'删除文章',path:'deletearticles'}]},
+                {id:2,name:'说说管理',children:[{id:7,name:'发表说说',path:'addshuoshuo'},{id:8,name:'修改说说',path:'editshuoshuo'},{id:9,name:'删除说说',path:'deleteshuoshuo'}]},
+                {id:3,name:'评论管理',children:[{id:10,name:'修改评论',path:'editcomments'},{id:11,name:'删除评论',path:'deletecomments'}]}
             ],
             iconobj:{
                 '125':'iconfont icon-user',
