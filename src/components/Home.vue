@@ -49,7 +49,7 @@ export default {
         return{
             menulist:[
                 {id:1,name:'文章管理',children:[{id:4,name:'发表文章',path:'addarticles'},{id:5,name:'文章列表',path:'articlelist'}]}, 
-                {id:2,name:'说说管理',children:[{id:7,name:'发表说说',path:'addshuoshuo'},{id:8,name:'说说列表',path:'editshuoshuo'}]},
+                {id:2,name:'说说管理',children:[{id:7,name:'发表说说',path:'addshuoshuo'},{id:8,name:'说说列表',path:'shuoshuolist'}]},
                 {id:3,name:'评论管理',children:[{id:10,name:'修改评论',path:'editcomments'},{id:11,name:'删除评论',path:'deletecomments'}]}
             ],
             iconobj:{

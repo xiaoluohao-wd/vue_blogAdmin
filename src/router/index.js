@@ -2,9 +2,12 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../components/Home.vue'
 import Welcome from '../components/welcome.vue'
-import AddArticle from '../components/Addarticle.vue'
-import Articlelist from '../components/articlelist.vue'
-import EditArticle from '../components/EditArticle.vue'
+import AddArticle from '../components/article/Addarticle.vue'
+import Articlelist from '../components/article/articlelist.vue'
+import EditArticle from '../components/article/Editarticle.vue'
+import AddSHuoshuo from '../components/shuoshuo/AddShuoshuo.vue'
+import Shuoshuolist from '../components/shuoshuo/shuoshuolist.vue'
+import EditShuoshuo from '../components/shuoshuo/EditShuoshuo.vue'
 import '../assets/css/global.css'
 Vue.use(VueRouter)
 
@@ -21,7 +24,10 @@ const routes = [
       //文章相关路由
       {path:'/addarticles',component:AddArticle},
       {path:'/articlelist',component:Articlelist},
-      {path:'/articleslist/edit',component:EditArticle}
+      {path:'/articleslist/edit',component:EditArticle},
+      {path:'/addshuoshuo',component:AddSHuoshuo},
+      {path:'/shuoshuolist',component:Shuoshuolist},
+      {path:'/shuoshuolist/edit',component:EditShuoshuo}
     ]
   }
 ]

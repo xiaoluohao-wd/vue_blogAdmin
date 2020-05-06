@@ -51,7 +51,7 @@ export default {
                return this.$message.error('修改文章失败')
            }
            this. $message.success('修改文章成功')
-           this.getarticleById()
+           this.$router.push('/articlelist')
         }
     }
 }
